@@ -1,6 +1,6 @@
 <template>
   <!--wrapper-->
-  <div class="bg-white h-14 w-4/5 relative rounded-md shadow-lg flex items-center">
+  <div class="bg-white h-14 w-4/5 relative rounded-md shadow-lg flex items-center fhd:w-3/5">
     <!--search icon-->
     <div class="absolute left-0 h-full w-14 flex items-center justify-center">
       <svg class="h-5 w-5 stroke-current text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"

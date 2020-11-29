@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-300 h-56 w-full grid place-items-center font-poppins">
+  <div class="bg-gray-300 h-60 w-full grid place-items-center font-poppins">
     <search-bar/>
   </div>
 </template>

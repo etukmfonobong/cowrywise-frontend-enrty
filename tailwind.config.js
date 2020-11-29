@@ -5,7 +5,15 @@ module.exports = {
     fontFamily: {
       poppins: ['Poppins', 'sans-serif'],
     },
-    extend: {},
+    extend: {
+      screens: {
+        'fhd': '1920px',
+      },
+      gridRow: {
+        'span-7': 'span 7 / span 7',
+        'span-8': 'span 8 / span 8',
+      }
+    },
   },
   variants: {
     extend: {},
