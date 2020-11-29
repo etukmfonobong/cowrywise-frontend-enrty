@@ -12,6 +12,9 @@ module.exports = {
       gridRow: {
         'span-7': 'span 7 / span 7',
         'span-8': 'span 8 / span 8',
+      },
+      colors: {
+        'gray-blue': '#334155',
       }
     },
   },
