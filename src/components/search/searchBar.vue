@@ -12,14 +12,28 @@
     <!--search label and input-->
     <label class="sr-only" for="search"></label>
     <input id="search"
+           v-model="searchValue"
            class="w-full h-full pl-14 rounded-md focus:outline-none focus:ring-3 focus:ring-blue-100 text-lg"
-           placeholder="Search For Photo" type="text">
+           placeholder="Search For Photo"
+           type="text" @keyup.enter="makeNewSearch">
   </div>
 </template>
 
 <script>
 export default {
-  name: "searchBar"
+  name: "searchBar",
+  data() {
+    return {
+      searchValue: ""
+    }
+  },
+  methods: {
+    makeNewSearch() {
+      if (this.searchValue.length >= 3) {
+        this.$store.dispatch("makeNewSearch", this.searchValue)
+      }
+    }
+  }
 }
 </script>
 

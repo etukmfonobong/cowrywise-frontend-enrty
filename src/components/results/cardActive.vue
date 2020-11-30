@@ -10,9 +10,7 @@
     <!--card description-->
     <div class="absolute z-20 bottom-0 p-6 font-poppins text-white font-light text-opacity-80">
       <p class="text-sm">{{ results.user['first_name'] }} {{ results.user['last_name'] }}</p>
-      <p class="text-xs"><span v-if="results.location.city">{{
-          results.location.city
-        }} ,</span> {{ results.location.country }}</p>
+      <p class="text-xs">{{ results.user.location }}</p>
     </div>
   </div>
 </template>

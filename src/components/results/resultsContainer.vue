@@ -1,9 +1,16 @@
 <template>
   <div class="cc-grid w-3/6 h-auto mx-auto -mt-10 place-items-center mb-5">
     <!--render active cards-->
-    <div v-for="results in random" v-if="!searching"
+    <div v-for="result in results" v-if="!searching"
          :class="`h-full w-full col-span-1 row-span-${Math.floor(Math.random() * 3) + 5}`">
-      <card-active :results="results"/>
+      <card-active :results="result"/>
+    </div>
+    <!--render "no results found"-->
+    <div v-if="!searching && results.length < 1" class="text-gray-blue leading-4 text-5xl font-semibold mt-28">
+      Sorry Nothing found on
+      <span class="text-gray-500">
+        "{{ searchTerm }}"
+      </span>
     </div>
     <!--render loading cards-->
     <div v-for="results in 9" v-if="searching"
@@ -31,7 +38,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['random', 'searching'])
+    ...mapGetters([`results`, `searching`, `searchTerm`])
   },
   created() {
     this.$store.dispatch("getRandom").then(() => {

@@ -2,7 +2,7 @@
   <div class="bg-gray-300 h-60 w-full grid place-items-center font-poppins">
     <div v-if="searching" class="w-4/5">
       <h1 class="text-gray-blue leading-3 text-4xl font-semibold">Searching for
-        <span class="text-gray-500">"Fun"</span>
+        <span class="text-gray-500">"{{ searchTerm }}"</span>
       </h1>
     </div>
 
@@ -20,7 +20,7 @@ export default {
     searchBar
   },
   computed: {
-    ...mapGetters(['searching'])
+    ...mapGetters([`searching`, `searchTerm`])
   }
 }
 </script>
