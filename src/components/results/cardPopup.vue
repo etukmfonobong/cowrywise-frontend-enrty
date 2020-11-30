@@ -25,9 +25,19 @@
       <!--popup itself-->
       <div class="bg-gray-500 w-3/5 h-5/6 flex flex-col shadow-lg rounded-md">
         <!--card image-->
-        <div class="bg-pink-200 w-full h-4/5 opacity-100 rounded-t-md relative">
+        <div class="bg-blue-50 w-full h-4/5 opacity-100 rounded-t-md relative overflow-hidden">
+          <!--animated loader when empty-->
+          <div class="absolute inset-0 h-full w-full flex items-center justify-center rounded-t-md">
+            <svg class="animate-pulse h-1/2 w-1/2 text-gray-600 fill-current hover:text-red-400" fill="none"
+                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                  d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                  stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+            </svg>
+          </div>
           <img :src="currentImg.urls.full" alt="random image"
-               class="absolute inset-0 w-full h-full object-cover object-center rounded-t-md">
+               class="absolute inset-0 w-full h-full object-cover object-top rounded-t-md">
         </div>
         <!--card content-->
         <div
@@ -42,6 +52,7 @@
 
 <script>
 import {mapGetters} from "vuex"
+import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock"
 
 export default {
   name: "cardPopup",
@@ -55,6 +66,8 @@ export default {
   },
   methods: {
     closeModal() {
+      const targetElement = document.querySelector('#app')
+      enableBodyScroll(targetElement)
       this.$store.dispatch("toggleModal", {open: false, image: this.empty})
     }
   }

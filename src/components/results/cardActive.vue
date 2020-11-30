@@ -17,11 +17,15 @@
 </template>
 
 <script>
+import {disableBodyScroll} from "body-scroll-lock"
+
 export default {
   name: "cardActive",
   props: ['results'],
   methods: {
     openModal() {
+      const targetElement = document.querySelector('#app')
+      disableBodyScroll(targetElement)
       this.$store.dispatch("toggleModal", {open: true, image: this.results})
     }
   }
