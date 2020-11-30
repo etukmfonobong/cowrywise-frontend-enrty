@@ -19,7 +19,13 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      ringColor: ['hover'],
+      ringOffsetColor: ['hover'],
+      ringOffsetWidth: ['hover'],
+      ringOpacity: ['hover'],
+      ringWidth: ['hover'],
+    },
   },
   plugins: [],
 }

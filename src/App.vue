@@ -1,4 +1,6 @@
 <template>
-  <router-view/>
+  <div class="cc-body">
+    <router-view/>
+  </div>
 </template>
 
