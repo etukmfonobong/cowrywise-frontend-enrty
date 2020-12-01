@@ -1,6 +1,5 @@
 module.exports = {
   purge: {
-    enabled: true,
     content: [
       './src/App.vue',
       './src/views/Home.vue',
