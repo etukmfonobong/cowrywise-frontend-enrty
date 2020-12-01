@@ -6,7 +6,8 @@
       <card-active :results="result"/>
     </div>
     <!--render "no results found"-->
-    <div v-if="!searching && results.length < 1" class="text-gray-blue leading-4 text-5xl font-semibold mt-28">
+    <div v-if="!searching && results.length < 1"
+         class="text-gray-blue leading-8 md:leading-10 text-2xl md:text-3xl lg:text-5xl font-semibold mt-28">
       Sorry Nothing found on
       <span class="text-gray-500">
         "{{ searchTerm }}"
