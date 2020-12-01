@@ -1,4 +1,8 @@
 <template>
+  <vue-headful
+      :title="`etuk mfon | unSplash Test`"
+      description="cowry wise frontend test"
+  />
   <div :class="[modalOpen ? ccBody : '']">
     <router-view/>
   </div>
