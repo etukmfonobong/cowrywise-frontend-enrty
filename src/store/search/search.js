@@ -4,7 +4,7 @@ const accKey = "YRcBdiRoYkul7dxtgFW2ljg4MuJUH-w-BheezIE5Qvo"
 const state = {
   modalOpen: false,
   searching: null,
-  searchTerm: "Fun",
+  searchTerm: "African",
   results: null,
   currentImg: {urls: {full: null}, user: {first_name: null, last_name: null, location: null}},
   random: null
@@ -33,8 +33,8 @@ const actions = {
   async getRandom({commit}) {
     commit("UPDATE_SEARCHING", true)
     try {
-      const response = await axios.get(`https://api.unsplash.com/photos/random?client_id=${accKey}&count=12`)
-      commit("UPDATE_RESULTS", response.data)
+      const response = await axios.get(`https://api.unsplash.com/search/photos?client_id=${accKey}&query=african&per_page=18`)
+      commit("UPDATE_RESULTS", response.data.results)
     } catch (e) {
       console.log(e)
     }
@@ -44,7 +44,7 @@ const actions = {
     commit("UPDATE_SEARCHING", true)
     commit("UPDATE_SEARCH_TERM", searchValue)
     try {
-      const response = await axios.get(`https://api.unsplash.com/search/photos?client_id=${accKey}&query=${searchValue}&per_page=12`)
+      const response = await axios.get(`https://api.unsplash.com/search/photos?client_id=${accKey}&query=${searchValue}&per_page=18`)
       commit("UPDATE_RESULTS", response.data.results)
     } catch (e) {
       console.log(e)
