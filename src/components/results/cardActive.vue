@@ -1,7 +1,7 @@
 <template>
   <!--card wrapper active-->
   <div
-      :class="`h-full w-full col-span-1 row-span-${Math.floor(Math.random() * 3) + 5} cursor-pointer rounded-md relative shadow hover:ring-8 hover:ring-blue-300`"
+      :class="`h-full w-full cursor-pointer rounded-md relative shadow hover:ring-8 hover:ring-blue-300`"
       @click="openModal">
     <!--image overlay-->
     <div class="w-full h-3/5 bg-gradient-to-t from-black z-10 absolute bottom-0 opacity-70 rounded-md"></div>

@@ -1,9 +1,9 @@
 <template>
   <transition
-      enter-active-class="transition ease-out duration-2000 transform"
+      enter-active-class="transition ease-out duration-10000 transform"
       enter-class="opacity-0 scale-95"
       enter-to-class="opacity-100 scale-100"
-      leave-active-class="transition ease-in duration-75 transform"
+      leave-active-class="transition ease-in duration-10000 transform"
       leave-class="opacity-100 scale-100"
       leave-to-class="opacity-0 scale-95"
   />
@@ -43,14 +43,15 @@
         </div>
         <!--card content-->
         <div
-            class="relative bg-gray-100 w-full h-1/5 opacity-100 rounded-b-md pt-6 pl-10 pr-6 pb-6 font-poppins font-semibold text-opacity-70 flex flex-col justify-end">
+            class="relative bg-gray-100 w-full h-1/5 opacity-100 rounded-b-md pt-8 pl-10 pr-6 pb-6 font-poppins font-semibold text-opacity-70 flex flex-col justify-end">
           <p class="text-lg text-gray-blue ">{{ currentImg.user['first_name'] }} {{ currentImg.user['last_name'] }}</p>
           <p class="text-xs text-gray-500 mt-2 mb-8">{{ currentImg.user.location }}</p>
 
+          <!--zoom in widget-->
           <div
               class="bg-gray-300 absolute top-0 right-0 h-10 w-10  mt-10 mr-16 grid place-items-center cursor-pointer hover:ring-2 hover:ring-blue-300 rounded-md"
               @click="zoom = true">
-            <!--zoom in-->
+            <!--zoom in icon-->
             <svg class="h-6 w-6 text-indigo-400 fill-current hover:text-indigo-500" fill="currentColor"
                  viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="M5 8a1 1 0 011-1h1V6a1 1 0 012 0v1h1a1 1 0 110 2H9v1a1 1 0 11-2 0V9H6a1 1 0 01-1-1z"/>
@@ -59,10 +60,11 @@
                     fill-rule="evenodd"/>
             </svg>
           </div>
+          <!--zoom out widget-->
           <div
               class=" bg-gray-200 absolute top-0 right-0 h-10  w-10 mt-10 mr-5 grid place-items-center cursor-pointer hover:ring-2 hover:ring-blue-300 rounded-md"
               @click="zoom = false">
-            <!--zoom out-->
+            <!--zoom out icon-->
             <svg class="h-6 w-6 text-red-300 fill-current hover:text-red-400" fill="currentColor"
                  viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path clip-rule="evenodd"
@@ -80,7 +82,7 @@
 
 <script>
 import {mapGetters} from "vuex"
-import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock"
+import {enableBodyScroll} from "body-scroll-lock"
 
 export default {
   name: "cardPopup",

@@ -1,6 +1,6 @@
 <template>
   <vue-headful
-      :title="`etuk mfon | unSplash Test`"
+      :title="`unSplash Test`"
       description="cowry wise frontend test"
   />
   <search-container/>
