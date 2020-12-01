@@ -1,5 +1,18 @@
 module.exports = {
-  purge: [],
+  purge: {
+    enabled: true,
+    content: [
+      './src/App.vue',
+      './src/views/Home.vue',
+      './src/components/results/cardActive.vue',
+      './src/components/results/cardLoading.vue',
+      './src/components/results/cardPopup.vue',
+      './src/components/results/resultsContainer.vue',
+      './src/components/search/searchBar.vue',
+      './src/components/search/searchContainer.vue',
+    ]
+
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
