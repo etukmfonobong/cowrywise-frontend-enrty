@@ -1,16 +1,23 @@
 <template>
   <div class="cc-grid w-3/6 h-auto mx-auto -mt-10 place-items-center mb-5">
     <!--render active cards-->
-    <div v-for="result in results" v-if="!searching"
+    <div v-for="result in results" v-if="!searching && results.length > 1"
          :class="`h-full w-full col-span-1 row-span-${Math.floor(Math.random() * 3) + 5}`">
       <card-active :results="result"/>
     </div>
     <!--render "no results found"-->
     <div v-if="!searching && results.length < 1"
-         class="text-gray-blue leading-8 md:leading-10 text-2xl md:text-3xl lg:text-5xl font-semibold mt-28">
+         class="text-gray-blue leading-8 md:leading-10 text-2xl md:text-3xl lg:text-5xl font-semibold mt-32">
       Sorry Nothing found on
       <span class="text-gray-500">
         "{{ searchTerm }}"
+      </span>
+    </div>
+    <!--render "Api errors"-->
+    <div v-if="!searching && results.errors"
+         class="text-gray-blue leading-8 md:leading-10 text-2xl md:text-3xl lg:text-5xl font-semibold mt-28">
+      <span class="text-gray-500">
+        "{{ results.errors[0] }}"
       </span>
     </div>
     <!--render loading cards-->

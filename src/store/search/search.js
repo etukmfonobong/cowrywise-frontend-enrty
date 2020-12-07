@@ -1,5 +1,9 @@
 import axios from "axios"
 
+const Axios = axios.create({
+  withCredentials: false
+})
+
 const accKey = "YRcBdiRoYkul7dxtgFW2ljg4MuJUH-w-BheezIE5Qvo"
 const state = {
   modalOpen: false,
@@ -33,21 +37,24 @@ const actions = {
   async getRandom({commit}) {
     commit("UPDATE_SEARCHING", true)
     try {
-      const response = await axios.get(`https://api.unsplash.com/search/photos?client_id=${accKey}&query=african&per_page=18`)
+      const response = await Axios.get(`https://api.unsplash.com/search/photos?client_id=${accKey}&query=african&per_page=18`)
       commit("UPDATE_RESULTS", response.data.results)
     } catch (e) {
       console.log(e)
+      commit("UPDATE_RESULTS", {errors: ["Sorry for the inconvinence, We are experiencing server issues"]})
     }
     commit("UPDATE_SEARCHING", false)
   },
   async makeNewSearch({commit}, searchValue) {
     commit("UPDATE_SEARCHING", true)
     commit("UPDATE_SEARCH_TERM", searchValue)
+    let response
     try {
-      const response = await axios.get(`https://api.unsplash.com/search/photos?client_id=${accKey}&query=${searchValue}&per_page=18`)
+      response = await Axios.get(`https://api.unsplash.com/search/photos?client_id=${accKey}&query=${searchValue}&per_page=18`)
       commit("UPDATE_RESULTS", response.data.results)
     } catch (e) {
       console.log(e)
+      commit("UPDATE_RESULTS", {errors: ["Sorry for the inconvinence, We are experiencing server issues"]})
     }
     commit("UPDATE_SEARCHING", false)
   },
